@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script type='text/javascript' src='https://api.netlify.com/JW8ALg2n2OFNd57Eg-C2N6wkmN4jsCR6zPbtfedgwWtbvR9rGUvzHVDbFfh2nclc0qRouICI_MNqrWVtxswzaw=='></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groove101 - Upcoming Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/g101logo.png">
+    <style>
+        :root {
+            --primary-color: #9d3a6c; --accent-color: #e67e22; --light-bg: #ffffff; --off-white-bg: #f8f9fa; --text-color: #343a40; --light-text: #6c757d; --font-family: 'Poppins', sans-serif;
+        }
+        body { margin: 0; font-family: var(--font-family); background-color: var(--light-bg); color: var(--text-color); line-height: 1.6; }
+        .hero { display: flex; justify-content: center; align-items: center; text-align: center; height: 40vh; background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-background.jpg'); background-size: cover; background-position: center; color: #fff; padding: 20px; }
+        .hero h1 { font-size: 3rem; margin: 0; }
+        .nav-wrapper { position: sticky; top: 0; z-index: 1000; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e0e0e0; }
+        .navbar { display: flex; justify-content: center; align-items: center; padding: 10px 20px; max-width: 1200px; margin: 0 auto; }
+        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 600; padding: 10px 15px; border-radius: 5px; transition: background-color 0.2s, color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { background-color: var(--primary-color); color: #fff; }
+        .content-section { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; font-weight: 600; color: var(--primary-color); }
+        .section-title::after { content: ''; display: block; width: 50px; height: 4px; background-color: var(--accent-color); margin: 10px auto 0; }
+        .event-list { display: flex; flex-direction: column; gap: 20px; }
+        .event-item { display: flex; align-items: center; gap: 20px; background: var(--off-white-bg); padding: 20px; border-radius: 5px; border: 1px solid #e0e0e0; transition: box-shadow 0.2s; }
+        .event-item:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .event-date { background: var(--primary-color); color: #fff; padding: 15px; border-radius: 5px; text-align: center; font-weight: 600; flex-shrink: 0; }
+        .event-date span { display: block; }
+        .date-day { font-size: 2rem; line-height: 1; }
+        .date-month { font-size: 1rem; }
+        .event-details { flex-grow: 1; }
+        .event-details h3 { margin: 0 0 5px 0; font-size: 1.5rem; }
+        .event-details p { margin: 0; color: var(--light-text); }
+        .event-cta { flex-shrink: 0; }
+        .cta-button { background-color: var(--accent-color); color: #fff; padding: 10px 20px; text-decoration: none; font-weight: 600; border-radius: 5px; transition: transform 0.2s, background-color 0.2s; border: none; font-family: var(--font-family); font-size: 1rem; cursor: pointer; }
+        .cta-button:hover { background-color: var(--primary-color); transform: translateY(-3px); }
+        .past-events-list { text-align: center; list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .past-events-list li { background: var(--off-white-bg); padding: 8px 15px; border-radius: 5px; border: 1px solid #e0e0e0; }
+        footer { background-color: #121212; color: #a0a0a0; text-align: center; padding: 40px 20px; }
+        footer a { color: #fff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>Upcoming Events</h1>
+    </header>
+
+    <div class="nav-wrapper scrolled">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#band">The Band</a></li>
+                <li><a href="index.html#video">Video</a></li>
+                <li class="active"><a href="events.html">Events</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <section class="content-section">
+            <div class="event-list">
+                <div class="event-item">
+                    <div class="event-date"><span class="date-day">19</span><span class="date-month">JUL</span></div>
+                    <div class="event-details"><h3>The Waterfront Studio</h3><p>Norwich, Norfolk - Public Event</p></div>
+                    <div class="event-cta"><a href="#" class="cta-button">Get Tickets</a></div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date"><span class="date-day">26</span><span class="date-month">JUL</span></div>
+                    <div class="event-details"><h3>Private Wedding</h3><p>Suffolk - Booked</p></div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date"><span class="date-day">10</span><span class="date-month">AUG</span></div>
+                    <div class="event-details"><h3>Corporate Function</h3><p>Cambridge - Booked</p></div>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 80px;">Past Highlights</h2>
+            <ul class="past-events-list">
+                <li>Leiston Abbey</li>
+                <li>Aviva Corporate Awards</li>
+                <li>Norwich Arts Centre</li>
+                <li>The Apex, Bury St Edmunds</li>
+                <li>Numerous Weddings & Parties</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Web design by <a href="http://googleusercontent.com/site-not-found" target="_blank">markdudley.co.uk</a> - Groove101 Band © 2025</p>
+        <p>Phone: (555) 123-4567</p>
+    </footer>
+</body>
+</html>
