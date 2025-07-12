@@ -542,26 +542,17 @@
             </div>
         </section>
 
-        <section id="contact" class="content-section">
+
+            <section id="contact" class="content-section">
             <h2 class="section-title">Book Your Event</h2>
-            <form class="contact-form" action="netlify" method="POST">
+            <form class="contact-form" action="https://formspree.io/f/myzjqnnj" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" rows="5" placeholder="Tell us about your event..." required></textarea>
                 <button type="submit" class="cta-button primary form-submit-btn">Submit</button>
+                <p class="form-status"></p> 
             </form>
         </section>
-        <form name="contact" netlify>
-  <p>
-    <label>Name <input type="text" name="name" /></label>
-  </p>
-  <p>
-    <label>Email <input type="email" name="email" /></label>
-  </p>
-  <p>
-    <button type="submit">Send</button>
-  </p>
-</form>
     </main>
     
     <footer>
@@ -571,59 +562,101 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            const navToggle = document.querySelector('.mobile-nav-toggle');
-            const navLinks = document.querySelector('.nav-links');
+            // --- AJAX FORM SUBMISSION ---
+            const form = document.querySelector('.contact-form');
+            if (form) {
+                const formStatus = form.querySelector('.form-status');
 
-            navToggle.addEventListener('click', () => {
-                navToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-
-            const navWrapper = document.querySelector('.nav-wrapper');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navWrapper.classList.add('scrolled');
-                } else {
-                    navWrapper.classList.remove('scrolled');
-                }
-            });
-
-            const sections = document.querySelectorAll('header[id], section[id]');
-            const allNavLinks = document.querySelectorAll('.nav-links a');
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.4
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        allNavLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
+                async function handleSubmit(event) {
+                    event.preventDefault();
+                    const data = new FormData(event.target);
+                    try {
+                        const response = await fetch(event.target.action, {
+                            method: form.method,
+                            body: data,
+                            headers: {
+                                'Accept': 'application/json'
                             }
                         });
+                        if (response.ok) {
+                            if (formStatus) formStatus.innerHTML = "Thanks! Your message has been sent. ✨";
+                            form.reset();
+                        } else {
+                            const responseData = await response.json();
+                            if (Object.hasOwn(responseData, 'errors')) {
+                                if (formStatus) formStatus.innerHTML = responseData["errors"].map(error => error["message"]).join(", ");
+                            } else {
+                                if (formStatus) formStatus.innerHTML = "Oops! There was a problem submitting your form.";
+                            }
+                        }
+                    } catch (error) {
+                        if (formStatus) formStatus.innerHTML = "Oops! There was a problem submitting your form.";
+                    }
+                }
+                form.addEventListener("submit", handleSubmit);
+            }
+
+            // --- MOBILE NAVIGATION ---
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', () => {
+                    navToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+
+            // --- SCROLLED NAVIGATION BAR ---
+            const navWrapper = document.querySelector('.nav-wrapper');
+            if (navWrapper) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navWrapper.classList.add('scrolled');
+                    } else {
+                        navWrapper.classList.remove('scrolled');
                     }
                 });
-            }, observerOptions);
+            }
 
-            sections.forEach(section => {
-                if (section) {
-                    observer.observe(section);
-                }
-            });
+            // --- NAVIGATION LINK OBSERVER ---
+            const sections = document.querySelectorAll('header[id], section[id]');
+            const allNavLinks = document.querySelectorAll('.nav-links a');
+            if (sections.length > 0 && allNavLinks.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.4
+                };
 
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            allNavLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => {
+                    if (section) {
+                        observer.observe(section);
+                    }
+                });
+            }
+
+            // --- FAQ ACCORDION ---
             const faqQuestions = document.querySelectorAll('.faq-question');
             faqQuestions.forEach(button => {
                 button.addEventListener('click', () => {
