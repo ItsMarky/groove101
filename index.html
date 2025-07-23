@@ -45,6 +45,7 @@
             background-color: var(--light-bg);
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden; /* Fix for the gap on the right */
         }
         .form-submit-btn {
         width: 200px;
@@ -444,8 +445,8 @@
             z-index: 1010;
             /* Fallback for browsers that don't support env() */
             bottom: 20px; 
-            /* Adjusts position to account for mobile browser UI */
-            bottom: calc(20px + env(safe-area-inset-bottom));
+            /* Adjusts position to account for mobile browser UI and prevents the icon from being cut off */
+            bottom: calc(20px + env(safe-area-inset-bottom, 0px));
         }
 
         .fab-trigger {
