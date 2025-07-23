@@ -272,6 +272,7 @@
             background-color: var(--off-white-bg);
             border-radius: 8px;
             border-left: 5px solid var(--accent-color);
+            overflow-wrap: break-word; /* FIX: Prevents text from overflowing */
         }
         .form-intro-box a {
             color: var(--primary-color);
@@ -547,12 +548,14 @@
 </head>
 <body>
     <header id="home" class="hero">
-	<a href="#home" aria-label="Back to Homepage">
-        <img src="images/g101logo.png" alt="Groove 101 Band Logo" class="hero-logo"> </a>
-        <h1>Live Music for Unforgettable Events</h1> <div class="hero-cta-container">
-    <a href="#contact" class="cta-button primary">Check Availability or Get a Quote</a>
-    <a href="#video" class="cta-button secondary">Watch Us Play</a>
-</div>
+        <a href="#home" aria-label="Back to Homepage">
+            <img src="images/g101logo.png" alt="Groove 101 Band Logo" class="hero-logo">
+        </a>
+        <h1>Live Music for Unforgettable Events</h1>
+        <div class="hero-cta-container">
+            <a href="#contact" class="cta-button primary">Check Availability or Get a Quote</a>
+            <a href="#video" class="cta-button secondary">Watch Us Play</a>
+        </div>
     </header>
 
     <div class="nav-wrapper">
@@ -782,7 +785,7 @@
                 <p>Planning an event? The form below is the best way to provide us with all the details for an accurate quote. For general questions, or if the form isn't suitable, feel free to email us directly at <a href="mailto:bookings@groove101.co.uk">bookings@groove101.co.uk</a>.</p>
             </div>
 
-            <form class="contact-form" action="https://formspree.io/f/xwpqvkvy" method="POST">
+            <form class="contact-form" action="https://formspree.io/f/mnnvkggk" method="POST">
                 
                 <fieldset>
                     <legend>Your Contact Details</legend>
@@ -838,6 +841,11 @@
                     <label for="comment">Leave this field empty</label>
                     <input type="text" id="comment" name="comment" tabindex="-1">
                 </p>
+
+                <div class="form-meta">
+                    <p>We'll get back to you as soon as possible.</p>
+                </div>
+
                 <button type="submit" class="cta-button primary form-submit-btn">Submit Enquiry</button>
                 <p class="form-status-error" style="color: #ff4d4d; margin-top: 15px; text-align: center;"></p>
             </form>
