@@ -73,7 +73,7 @@
             margin-bottom: 20px;
         }
 
-        .hero p {
+        .hero h1 {
             font-size: 1.5rem;
             margin: 0 0 30px 0;
             font-weight: 400;
@@ -263,14 +263,86 @@
         .faq-answer p { margin-top: 0; padding: 0 0 20px 0; color: var(--light-text); }
 
         /* --- Contact Form --- */
+        .form-intro-box {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            padding: 20px;
+            background-color: var(--off-white-bg);
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+        }
+        .form-intro-box a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .form-intro-box a:hover {
+            text-decoration: underline;
+        }
+
         .contact-form { display: grid; gap: 20px; max-width: 700px; margin: 0 auto; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; border-radius: 5px; border: 1px solid #ccc; background-color: var(--light-bg); color: var(--text-color); font-family: var(--font-family); font-size: 1rem; }
+        
+        .contact-form label {
+            font-weight: 600;
+            margin-bottom: -10px;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+        
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            font-size: 1rem;
+        }
+        .contact-form .form-meta {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            text-align: center;
+        }
+        
+        .contact-form fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+            display: contents; /* Allows children to be part of the parent grid */
+        }
+        .contact-form legend {
+            grid-column: 1 / -1; /* Makes the legend span the full width */
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: left;
+            color: var(--primary-color);
+        }
+        .contact-form legend:first-of-type {
+            margin-top: 0; /* Remove top margin from the very first legend */
+        }
+
         .contact-form button { width: 100%; font-size: 1.1rem; }
+        
+        .form-honeypot {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 0;
+            width: 0;
+            z-index: -1;
+        }
         
         .form-success { background-color: #28a745; border: 1px solid #218838; color: #ffffff; padding: 40px 20px; border-radius: 8px; text-align: center; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); display: none; animation: fadeIn 0.5s ease-in-out; }
         .form-success h3 { margin-top: 0; margin-bottom: 10px; font-size: 2.5em; font-weight: bold; }
         .form-success p { font-size: 1.2em; margin-bottom: 0; line-height: 1.5; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
         footer { background-color: #121212; color: #a0a0a0; text-align: center; padding: 40px 20px; }
         footer a { color: #fff; text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: var(--accent-color); }
@@ -303,7 +375,6 @@
         }
         
         @media (max-width: 768px) {
-            /* --- White Top Nav Bar (Mobile) --- */
             .nav-wrapper {
                 opacity: 1;
                 visibility: visible;
@@ -314,9 +385,7 @@
                 border-bottom: 1px solid #e0e0e0;
             }
 
-            .navbar {
-                justify-content: flex-end;
-            }
+            .navbar { justify-content: flex-end; }
 
             .mobile-nav-toggle {
                 display: block !important;
@@ -347,30 +416,16 @@
                 background: var(--text-color);
                 transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
             }
-            .mobile-nav-toggle .hamburger-icon::before {
-                top: -11px;
-            }
-            .mobile-nav-toggle .hamburger-icon::after {
-                bottom: -11px;
-            }
+            .mobile-nav-toggle .hamburger-icon::before { top: -11px; }
+            .mobile-nav-toggle .hamburger-icon::after { bottom: -11px; }
 
             .mobile-nav-toggle:hover .hamburger-icon,
             .mobile-nav-toggle:hover .hamburger-icon::before,
-            .mobile-nav-toggle:hover .hamburger-icon::after {
-                background: var(--primary-color);
-            }
+            .mobile-nav-toggle:hover .hamburger-icon::after { background: var(--primary-color); }
 
-            .mobile-nav-toggle.active .hamburger-icon {
-                background: transparent;
-            }
-            .mobile-nav-toggle.active .hamburger-icon::before {
-                top: 0;
-                transform: rotate(45deg);
-            }
-            .mobile-nav-toggle.active .hamburger-icon::after {
-                bottom: 0;
-                transform: rotate(-45deg);
-            }
+            .mobile-nav-toggle.active .hamburger-icon { background: transparent; }
+            .mobile-nav-toggle.active .hamburger-icon::before { top: 0; transform: rotate(45deg); }
+            .mobile-nav-toggle.active .hamburger-icon::after { bottom: 0; transform: rotate(-45deg); }
             
             .nav-links {
                 position: absolute;
@@ -387,65 +442,52 @@
                 overflow: hidden;
                 transition: max-height 0.4s ease-out, padding 0.4s ease-out;
             }
-            .nav-links.active {
-                max-height: 500px;
-                padding: 10px 0;
-            }
-            .nav-links li {
-                width: 100%;
-                border-bottom: 1px solid #f0f0f0;
-            }
-            .nav-links li:last-child {
-                border-bottom: none;
-            }
-            .nav-links a {
-                padding: 12px 20px;
-                text-align: center;
-                border-radius: 0;
-                border-left: 4px solid transparent;
-            }
+            .nav-links.active { max-height: 500px; padding: 10px 0; }
+            .nav-links li { width: 100%; border-bottom: 1px solid #f0f0f0; }
+            .nav-links li:last-child { border-bottom: none; }
+            .nav-links a { padding: 12px 20px; text-align: center; border-radius: 0; border-left: 4px solid transparent; }
             .nav-links a:hover,
-            .nav-links a.active {
-                background-color: transparent;
-                color: var(--primary-color);
-            }
-            .nav-links a.active {
-                border-left-color: var(--accent-color);
-                font-weight: 700;
-            }
+            .nav-links a.active { background-color: transparent; color: var(--primary-color); }
+            .nav-links a.active { border-left-color: var(--accent-color); font-weight: 700; }
 
-            .hero-logo {
-    width: 90%; /* Use a percentage to stay within the screen */
-    max-width: 400px; /* Set a maximum size for larger mobile screens */
-}
+            .hero-logo { width: 90%; max-width: 400px; }
             .hero-cta-container { flex-direction: column; }
             .about-grid, .band-grid, .video-grid { grid-template-columns: 1fr; }
 
-            .logo-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .logo-grid .logo-item:last-child:nth-child(odd) {
-                grid-column: 1 / -1;
-            }
+            .logo-grid { grid-template-columns: repeat(2, 1fr); }
+            .logo-grid .logo-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
             .section-title { font-size: 2rem; }
-            .hero p { font-size: 1.1rem; }
+            .hero h1 { font-size: 1.1rem; }
             .band-card h3 { font-size: 1.3rem; }
         }
-
-        .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
-        .social-icons a { display: inline-block; color: #ffffff; transition: transform 0.3s ease, color 0.3s ease; }
-        .social-icons a:hover { color: #9d3a6c; transform: scale(1.15); }
-        .social-icons svg { width: 30px; height: 30px; fill: currentColor; }
         
-        /* --- Floating Action Button --- */
+        .footer-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        .footer-social-icons a {
+            color: #a0a0a0;
+            display: inline-block;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .footer-social-icons a:hover {
+            color: #ffffff;
+            transform: scale(1.15);
+        }
+        .footer-social-icons svg {
+            width: 30px;
+            height: 30px;
+            fill: currentColor;
+        }
+        
         .fab-container {
             position: fixed;
             right: 20px;
             z-index: 1010;
-            /* Fallback for browsers that don't support env() */
             bottom: 20px; 
-            /* Adjusts position to account for mobile browser UI and prevents the icon from being cut off */
             bottom: calc(20px + env(safe-area-inset-bottom, 0px));
         }
 
@@ -456,7 +498,7 @@
             background-color: var(--primary-color);
             color: white;
             font-size: 2.5rem;
-            line-height: 60px; /* Vertically center the '+' */
+            line-height: 60px;
             border: none;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -472,7 +514,7 @@
 
         .fab-icon-link {
             position: absolute;
-            bottom: 5px; /* Position relative to the container */
+            bottom: 5px;
             right: 5px;
             width: 50px;
             height: 50px;
@@ -484,8 +526,6 @@
             justify-content: center;
             align-items: center;
             z-index: 9;
-            
-            /* Hide icons by default */
             opacity: 0;
             transform: scale(0.5);
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -496,42 +536,23 @@
             height: 24px;
             fill: currentColor;
         }
-
-        /* --- Active State (when button is clicked) --- */
-
-        /* Rotate the plus icon to a close icon */
-        .fab-container.active .fab-trigger {
-            transform: rotate(45deg);
-        }
-
-        /* Make the hidden icons visible */
-        .fab-container.active .fab-icon-link {
-            opacity: 1;
-        }
-
-        /* Fan the icons out vertically */
-        .fab-container.active .fab-icon-link:nth-child(1) {
-            transform: translateY(-70px) scale(1);
-        }
-        .fab-container.active .fab-icon-link:nth-child(2) {
-            transform: translateY(-135px) scale(1);
-        }
-        .fab-container.active .fab-icon-link:nth-child(3) {
-            transform: translateY(-200px) scale(1);
-        }
-        .fab-container.active .fab-icon-link:nth-child(4) {
-            transform: translateY(-265px) scale(1);
-        }
+        
+        .fab-container.active .fab-trigger { transform: rotate(45deg); }
+        .fab-container.active .fab-icon-link { opacity: 1; }
+        .fab-container.active .fab-icon-link:nth-child(1) { transform: translateY(-70px) scale(1); }
+        .fab-container.active .fab-icon-link:nth-child(2) { transform: translateY(-135px) scale(1); }
+        .fab-container.active .fab-icon-link:nth-child(3) { transform: translateY(-200px) scale(1); }
+        .fab-container.active .fab-icon-link:nth-child(4) { transform: translateY(-265px) scale(1); }
     </style>
 </head>
 <body>
     <header id="home" class="hero">
-        <img src="images/g101logo.png" alt="Groove 101 Band Logo" class="hero-logo">
-        <p>Live Music for Unforgettable Events</p>
-        <div class="hero-cta-container">
-            <a href="#video" class="cta-button primary">Watch Us Play</a>
-            <a href="#contact" class="cta-button secondary">Get a Quote</a>
-        </div>
+	<a href="#home" aria-label="Back to Homepage">
+        <img src="images/g101logo.png" alt="Groove 101 Band Logo" class="hero-logo"> </a>
+        <h1>Live Music for Unforgettable Events</h1> <div class="hero-cta-container">
+    <a href="#contact" class="cta-button primary">Check Availability or Get a Quote</a>
+    <a href="#video" class="cta-button secondary">Watch Us Play</a>
+</div>
     </header>
 
     <div class="nav-wrapper">
@@ -543,7 +564,6 @@
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#video">Video</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><a href="#faq">Download EPK</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="mobile-nav-toggle" aria-label="Toggle navigation">
@@ -557,7 +577,7 @@
             <h2 class="section-title">The Ultimate Party Band</h2>
             <div class="about-grid">
                 <div>
-                    <p>Groove 101 is an award-winning party band that energises weddings, corporate events, and private functions. With over 10 years of experience and a focus on dynamic live performance, every show is a unique experience, expertly crafted in the moment to pack your dance floor and create an unforgettable atmosphere.</p>
+                    <p>Serving London and the South East of England, Groove 101 is an award-winning party band that energises weddings, corporate events, and private functions. With over 10 years of experience and a focus on dynamic live performance, every show is a unique experience, expertly crafted in the moment to pack your dance floor and create an unforgettable atmosphere.</p>
                 </div>
                 <div>
                     <picture>
@@ -652,7 +672,7 @@
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <p class="quote">"I cannot thank you all enough for such a brilliant night. You were all that i hoped for and more and all of my guests thought the same. Please pass on my thanks to all of the band. I hope to see you play live again soon.""</p>
-                    <p class="attribution">- 50th Birthday @ The Grey Lady, Tunbridge Wells</p>
+                    <p class="attribution">- 50th Birthday @ The Grey Lady, Royal Tunbridge Wells</p>
                 </div>
                 <div class="testimonial-card">
                     <p class="quote">"Groove 101 Band has contributed to the social, economic and physical wellbeing of the Royal Borough through arts and entertainment. Their performances at events like the Great Get Together, Sparkle in the Park and Woolwich Carnival have supported community spirit and inclusion."</p>
@@ -660,7 +680,7 @@
                 </div>
                 <div class="testimonial-card">
                     <p class="quote">"Groove 101 played for us and were superb. A great mix of numbers and a very good singer."</p>
-                    <p class="attribution">- Party in Culverdon Park, Tunbridge Wells</p>
+                    <p class="attribution">- Party in Culverdon Park, Royal Tunbridge Wells</p>
                 </div>
             </div>
         </section>
@@ -723,7 +743,7 @@
                         <p>We play a high-energy mix of Funk, Soul, Ska, Reggae and Pop from across the decades, designed to keep the dance floor full. Our standard performance is two 60-minute sets, but we are happy to tailor this to suit your needs (e.g., up to three hours of live music). With advance notice, you can request a special song for your event.</p>
                     </div>
                 </div>
-				    <div class="faq-item">
+                <div class="faq-item">
                     <button class="faq-question">What do you provide for weddings?</button>
                     <div class="faq-answer">
                         <p>Creating the perfect atmosphere for weddings is our specialty. We understand that every wedding is unique and offer a range of services to match your day:</p>
@@ -734,6 +754,7 @@
                         </ul>
                         <p>We handle all the details, from coordinating seamlessly with your venue to dressing smartly for the occasion, ensuring your entertainment is professional and unforgettable.</p>
                     </div>
+                </div>
                 <div class="faq-item">
                     <button class="faq-question">Do you provide a DJ service or other extras?</button>
                     <div class="faq-answer">
@@ -749,21 +770,78 @@
                 <div class="faq-item">
                     <button class="faq-question">Got another question?</button>
                     <div class="faq-answer">
-                        <p>If there's anything else you need to know, please don't hesitate to get in touch via our contact form. If it’s important to you, it’s important to us.</p>
+                        <p>We'd love to hear from you. For detailed event enquiries, the best way to get in touch is via our <a href="#contact">contact form</a>. For general questions or if the form isn't suitable, you can email us directly at <a href="mailto:bookings@groove101.co.uk">bookings@groove101.co.uk</a>. If it’s important to you, it’s important to us.</p>
                     </div>
                 </div>
             </div>
         </section>
         <section id="contact" class="content-section">
             <h2 class="section-title">Contact Us</h2>
+
+            <div class="form-intro-box">
+                <p>Planning an event? The form below is the best way to provide us with all the details for an accurate quote. For general questions, or if the form isn't suitable, feel free to email us directly at <a href="mailto:bookings@groove101.co.uk">bookings@groove101.co.uk</a>.</p>
+            </div>
+
             <form class="contact-form" action="https://formspree.io/f/xwpqvkvy" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="text" name="name" placeholder="Your Phone Number">
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Tell us about your event..." required></textarea>
-                <button type="submit" class="cta-button primary form-submit-btn">Submit</button>
+                
+                <fieldset>
+                    <legend>Your Contact Details</legend>
+                    <p class="required-note" style="grid-column: 1 / -1;">* Indicates a required field</p>
+
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                    <label for="email">Your Email *</label>
+                    <input type="email" id="email" name="email" placeholder="e.g., you@example.com" required>
+
+                    <label for="phone">Your Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="e.g., 07123 456789">
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Your Event Details</legend>
+                    
+                    <label for="event_type">Type of Event *</label>
+                    <select id="event_type" name="event_type" required>
+                        <option value="" disabled selected>-- Please select an option --</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Corporate Event">Corporate Event</option>
+                        <option value="Private Party">Private Party</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="event_date">Event Date *</label>
+                    <input type="date" id="event_date" name="event_date" required>
+
+                    <label for="venue">Venue / Location *</label>
+                    <input type="text" id="venue" name="venue" placeholder="e.g., The Manor, London" required>
+                    
+                    <label for="guests">Estimated Number of Guests</label>
+                    <input type="number" id="guests" name="guests" placeholder="e.g., 100">
+                </fieldset>
+
+                <label for="source">How did you hear about us?</label>
+                <select id="source" name="source">
+                    <option value="" disabled selected>-- Please select an option --</option>
+                    <option value="Google/Web Search">Google/Web Search</option>
+                    <option value="Instagram/Facebook">Instagram/Facebook</option>
+                    <option value="Venue Recommendation">Venue Recommendation</option>
+                    <option value="Friend/Family Recommendation">Friend/Family Recommendation</option>
+                    <option value="Saw us live!">Saw us live!</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="message">Your Message *</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us anything else we should know about your event..." required></textarea>
+                
+                <p class="form-honeypot">
+                    <label for="comment">Leave this field empty</label>
+                    <input type="text" id="comment" name="comment" tabindex="-1">
+                </p>
+                <button type="submit" class="cta-button primary form-submit-btn">Submit Enquiry</button>
                 <p class="form-status-error" style="color: #ff4d4d; margin-top: 15px; text-align: center;"></p>
             </form>
+			
              <div id="form-success-message" class="form-success">
                 <h3>Thanks! 🎵</h3>
                 <p>Your message has been sent. We'll get back to you soon.</p>
@@ -778,11 +856,11 @@
         <a href="https://www.facebook.com/groove101uk" target="_blank" aria-label="Facebook" class="fab-icon-link">
             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
-        <a href="https://www.youtube.com/@groove101band" target="_blank" aria-label="YouTube" class="fab-icon-link">
-          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
         <a href="https://www.instagram.com/groove101band" target="_blank" aria-label="Instagram" class="fab-icon-link">
             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.717 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126C21.314 1.67 20.644 1.258 19.854.953c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.06 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.38.896-.423.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.585-.015-4.85-.074c-1.17-.06-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.82-896-1.38-.164-.423-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.585.074-4.85c.06-1.17.249-1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819-.679 1.38-.896.423-.164 1.057.36 2.227.413C8.415 2.175 8.797 2.16 12 2.16zm0 5.482A4.36 4.36 0 1012 16.36 4.36 4.36 0 0012 7.64zM12 14.2a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4zm6.406-6.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+        </a>
+         <a href="https://www.youtube.com/@groove101band" target="_blank" aria-label="YouTube" class="fab-icon-link">
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
         <button class="fab-trigger" aria-label="Toggle Social Links">
           +
@@ -790,8 +868,22 @@
     </div>
 
     <footer>
+        <div class="footer-social-icons">
+            <a href="https://wa.me/+4407507681662" target="_blank" aria-label="WhatsApp">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52s-.67-.816-.916-1.123c-.244-.306-.487-.262-.67-.268-.182-.006-.381-.008-.58-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/groove101uk" target="_blank" aria-label="Facebook">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@groove101band" target="_blank" aria-label="YouTube">
+              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/groove101band" target="_blank" aria-label="Instagram">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.717 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126C21.314 1.67 20.644 1.258 19.854.953c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.06 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.38.896-.423.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.585-.015-4.85-.074c-1.17-.06-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.82-896-1.38-.164-.423-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.585.074-4.85c.06-1.17.249-1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819-.679 1.38-.896.423-.164 1.057.36 2.227.413C8.415 2.175 8.797 2.16 12 2.16zm0 5.482A4.36 4.36 0 1012 16.36 4.36 4.36 0 0012 7.64zM12 14.2a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4zm6.406-6.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+            </a>
+        </div>
 		<a href="#home">Back to Top</a>
-	<br>	© Groove 101 Band 2025. All rights reserved.
+	    <br>	© Groove 101 Band 2025. All rights reserved.
     </footer>
 
     <script>
