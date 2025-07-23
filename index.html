@@ -24,7 +24,7 @@
         *::after {
             box-sizing: inherit;
         }
-
+        
         :root {
             --primary-color: #9d3a6c; /* Magenta */
             --accent-color: #e67e22;  /* Orange */
@@ -440,9 +440,12 @@
         /* --- Floating Action Button --- */
         .fab-container {
             position: fixed;
-            bottom: 20px;
             right: 20px;
             z-index: 1010;
+            /* Fallback for browsers that don't support env() */
+            bottom: 20px; 
+            /* Adjusts position to account for mobile browser UI */
+            bottom: calc(20px + env(safe-area-inset-bottom));
         }
 
         .fab-trigger {
