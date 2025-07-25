@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South East London Wedding Band | Groove 101</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/g101logo.png">
+
+	<meta name="description" content="Groove 101 is a premium party band for weddings and corporate events across South East London, including Greenwich, Dulwich, and Blackheath. Book professional live music for your London event.">
+	
+    <meta property="og:title" content="Your Professional South East London Wedding Band | Groove 101">
+    <meta property="og:description" content="Discover Groove 101, a professional party band based in Kent and serving all of South East London.">
+    <meta property="og:image" content="https://www.groove101.co.uk/images/show.jpg"> 
+    <meta property="og:url" content="https://www.groove101.co.uk/south-east-london-wedding-band.html">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="styles.css"> <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+        
+        :root {
+            --primary-color: #9d3a6c; /* Magenta */
+            --accent-color: #e67e22;  /* Orange */
+            --light-bg: #ffffff;
+            --off-white-bg: #f8f9fa;
+            --text-color: #343a40;
+            --light-text: #6c757d;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Re-used Header & Navigation for a consistent look --- */
+        .header-bar {
+            background-color: #fff;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-bar .logo img {
+            height: 50px;
+        }
+        .header-bar .nav-links-simple a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .header-bar .nav-links-simple a:hover,
+        .header-bar .nav-links-simple a.primary-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* --- General Section Styling (Copied from your original file) --- */
+        .content-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        main section:nth-child(even) {
+            background-color: var(--off-white-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-grid img { width: 100%; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .about-grid p, .about-grid ul { font-size: 1.1rem; }
+        .about-grid li { margin-bottom: 10px; list-style-type: none; padding-left: 0;}
+        .about-grid li:before { content: '✓'; color: var(--accent-color); font-weight: bold; margin-right: 10px; }
+        
+        .venue-hub { text-align: center; font-size: 1.1rem; }
+        .venue-hub a { color: var(--primary-color); font-weight: 600; text-decoration: none; }
+        .venue-hub a:hover { text-decoration: underline; }
+
+        .cta-button {
+            padding: 15px 0;
+            width: 250px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: transform 0.2s, background-color 0.2s;
+            border: 2px solid var(--accent-color);
+            font-family: var(--font-family);
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+        .cta-button:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        footer { background-color: #121212; color: #a0a0a0; text-align: center; padding: 40px 20px; }
+        footer a { color: #fff; text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--accent-color); }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-bar">
+        <div class="logo">
+            <a href="https://www.groove101.co.uk/" aria-label="Back to Groove 101 Homepage">
+                <img src="images/g101logo.png" alt="Groove 101 Band Logo">
+            </a>
+        </div>
+        <nav class="nav-links-simple">
+            <a href="https://www.groove101.co.uk/#contact" class="primary-btn">Get a London Quote</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1 class="section-title">Your Professional Party Band for South East London</h1>
+            <div class="about-grid">
+                <div>
+                    <p>Planning a wedding, corporate event, or private party in South East London? From the historic charm of Greenwich and Blackheath to the leafy streets of Dulwich, it's an area full of incredible venues. Choosing a band that understands the unique logistics of the capital is essential.</p>
+                    <h3>The London-Ready Band</h3>
+                    <ul>
+                        <li><strong>Logistical Experts:</strong> We are experienced with the specific demands of London events, including ULEZ, congestion charges, and strict venue loading times.</li>
+                        <li><strong>Peace of Mind:</strong> Our meticulous planning ensures we arrive on time and are set up efficiently, leaving you to enjoy your event without stress.</li>
+                        <li><strong>Premium, Professional Sound:</strong> We bring a high-energy, polished performance worthy of the capital's finest venues.</li>
+                        <li><strong>Based in Kent:</strong> Our location provides easy access to all of South East London, giving you a top-tier band without inner-city premiums.</li>
+                    </ul>
+                    <a href="https://www.groove101.co.uk/#contact" class="cta-button">Enquire About Your London Event</a>
+                </div>
+                <div>
+                    <picture>
+                        <source srcset="images/show.webp" type="image/webp">
+                        <source srcset="images/show.jpg" type="image/jpeg">
+                        <img src="images/show.jpg" alt="Groove 101 playing live on stage">
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Proud to Serve London's Finest Venues</h2>
+            <div class="venue-hub">
+                <p>South East London is home to some of the most prestigious and unique wedding venues in the world. We are always honoured to be considered for events at these incredible locations. Learn more about how we can complement these fantastic spaces:</p>
+                <p>
+                    <a href="old-royal-naval-college-wedding-band.html">The Old Royal Naval College, Greenwich</a>
+                </p>
+                <p>We are also perfectly suited for events at other iconic SE London venues such as the Dulwich Picture Gallery, Severndroog Castle, and many more stylish hotels, warehouses, and private residences.</p>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Bring the Party to the Capital</h2>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <p>For an unforgettable party with a professional, energetic, and London-savvy band, look no further. Get in touch today to discuss your South East London event.</p>
+                <a href="https://www.groove101.co.uk/#contact" class="cta-button">Check Availability for Your Date</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p><a href="https://www.groove101.co.uk/">Back to Main Site</a></p>
+        <p>&copy; 2025 Groove 101 Band. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
