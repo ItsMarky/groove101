@@ -48,9 +48,27 @@
             overflow-x: hidden; /* Fix for the gap on the right */
         }
         .form-submit-btn {
-        width: 200px;
-        justify-self: center;
+            width: 200px;
+            justify-self: center;
         }
+        
+        .epk-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .epk-link:hover {
+            text-decoration: underline;
+        }
+        .epk-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
         /* --- Header & Hero Section --- */
         .hero {
             display: flex;
@@ -255,6 +273,13 @@
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         
+        /* --- REPERTOIRE STYLES --- */
+        .repertoire-intro { text-align: center; max-width: 800px; margin: -20px auto 50px; }
+        .repertoire-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .repertoire-category { background-color: #fff; padding: 25px; border-radius: 8px; border: 1px solid #e9e9e9; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .repertoire-category h3 { color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; margin-top: 0; margin-bottom: 20px; font-size: 1.4rem; }
+        .repertoire-category p { font-size: 0.95rem; line-height: 1.5; color: var(--light-text); }
+        
         .faq-item { border-bottom: 1px solid #e0e0e0; }
         .faq-question { background: none; border: none; width: 100%; text-align: left; padding: 20px 0; font-size: 1.2rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-color); }
         .faq-question::after { content: '+'; font-size: 2rem; transition: transform 0.3s ease; }
@@ -454,13 +479,17 @@
             .hero-logo { width: 90%; max-width: 400px; }
             .hero-cta-container { flex-direction: column; }
             .about-grid, .band-grid, .video-grid { grid-template-columns: 1fr; }
-
+            .repertoire-grid { grid-template-columns: 1fr; }
             .logo-grid { grid-template-columns: repeat(2, 1fr); }
             .logo-grid .logo-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
             .section-title { font-size: 2rem; }
             .hero h1 { font-size: 1.1rem; }
             .band-card h3 { font-size: 1.3rem; }
+        }
+
+        @media (max-width: 992px) and (min-width: 769px) {
+            .repertoire-grid { grid-template-columns: repeat(2, 1fr); }
         }
         
         .footer-social-icons {
@@ -564,6 +593,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#band">The Band</a></li>
+                <li><a href="#repertoire">Repertoire</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#video">Video</a></li>
                 <li><a href="#faq">FAQ</a></li>
@@ -670,6 +700,25 @@
             </div>
         </section>
 
+        <section id="repertoire" class="content-section">
+            <h2 class="section-title">Sample Repertoire</h2>
+            <p class="repertoire-intro">To give you an idea of our sound, here's a taste of the artists and genres that shape our live sets. Our repertoire is constantly evolving to keep things fresh, and we're always happy to discuss special requests to make your event perfect.</p>
+            <div class="repertoire-grid">
+                <div class="repertoire-category">
+                    <h3>Funk & Soul</h3>
+                    <p>We love getting people dancing with timeless tracks from legends like Stevie Wonder, Aretha Franklin, Earth, Wind & Fire, Prince, and Chic.</p>
+                </div>
+                <div class="repertoire-category">
+                    <h3>Modern Pop & Dance</h3>
+                    <p>Our sets feature high-energy modern hits from artists such as Pharrell Williams, Dua Lipa, and Gnarls Barkley, alongside dance anthems from the likes of M People and Moloko.</p>
+                </div>
+                <div class="repertoire-category">
+                    <h3>Ska, Reggae & Cool Grooves</h3>
+                    <p>We also mix in classic ska and reggae from The Specials and Jimmy Cliff, as well as smooth, soulful grooves from artists like Sade and Omar for a more relaxed atmosphere.</p>
+                </div>
+            </div>
+        </section>
+        
         <section id="testimonials" class="content-section">
             <h2 class="section-title">What Our Clients Say</h2>
             <div class="testimonial-grid">
@@ -723,10 +772,10 @@
             <h2 class="section-title">See Us In Action</h2>
             <div class="video-grid">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/6bzKOg7KRoM?si=z-zxyYSOXComs71u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/your_video_id_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/nRG-_P0uXn0?si=23qDpL7_eGH_yRYu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/your_video_id_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -782,7 +831,12 @@
             <h2 class="section-title">Contact Us</h2>
 
             <div class="form-intro-box">
-                <p>Planning an event? The form below is the best way to provide us with all the details for an accurate quote. For general questions, or if the form isn't suitable, feel free to email us directly at <a href="mailto:bookings@groove101.co.uk">bookings@groove101.co.uk</a>.</p>
+                <p>Planning an event? The form below is the best way to provide us with all the details for an accurate quote. For a quick overview, you can also 
+                    <a href="groove101epk.pdf" download="Groove-101-EPK.pdf" class="epk-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+                        Download our EPK
+                    </a>. For general questions, or if the form isn't suitable, feel free to email us directly at <a href="mailto:bookings@groove101.co.uk">bookings@groove101.co.uk</a>.
+                </p>
             </div>
 
             <form class="contact-form" action="https://formspree.io/f/xwpqvkvy" method="POST">
@@ -890,8 +944,11 @@
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.717 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126C21.314 1.67 20.644 1.258 19.854.953c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.06 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.38.896-.423.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.585-.015-4.85-.074c-1.17-.06-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.82-896-1.38-.164-.423-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.585.074-4.85c.06-1.17.249-1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819-.679 1.38-.896.423-.164 1.057.36 2.227.413C8.415 2.175 8.797 2.16 12 2.16zm0 5.482A4.36 4.36 0 1012 16.36 4.36 4.36 0 0012 7.64zM12 14.2a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4zm6.406-6.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
             </a>
         </div>
-		<a href="#home">Back to Top</a>
-	    <br>	© Groove 101 Band 2025. All rights reserved.
+        <a href="#home">Back to Top</a> | <a href="groove101epk.pdf" download="Groove-101-EPK.pdf">Download EPK</a>
+        <br><br>
+        <a href="mailto:bookings@groove101.co.uk">bookings@groove101.co.uk</a> | <a href="tel:+447507681662">07507 681662</a>
+        <br><br>
+	    © Groove 101 Band 2025. All rights reserved.
     </footer>
 
     <script>
