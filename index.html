@@ -868,6 +868,7 @@
                         <option value="Wedding">Wedding</option>
                         <option value="Corporate Event">Corporate Event</option>
                         <option value="Private Party">Private Party</option>
+						<option value="Wedding">Christmas Party</option>
                         <option value="Other">Other</option>
                     </select>
 
@@ -1076,9 +1077,117 @@
             }
         });
     </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Check if the banner was already closed in this session
+    if (sessionStorage.getItem('christmasBannerClosed')) {
+      return;
+    }
+
+    // 2. Define the HTML for the banner
+    const bannerHTML = `
+      <div id="christmas-banner">
+        <div class="banner-content">
+          <span>🎄 <strong>Now Accepting Christmas Bookings!</strong> Perfect for corporate events & private parties.</span>
+          <a href="#contact" class="banner-cta">Get a Quote</a>
+        </div>
+        <button id="close-banner-btn" aria-label="Close banner">&times;</button>
+      </div>
+    `;
+
+    // 3. Define the CSS styles for the banner
+    const bannerCSS = `
+      #christmas-banner {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #B22222; /* Festive deep red */
+        color: #ffffff;
+        z-index: 1001; /* Ensures it's above the sticky nav */
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: 'Poppins', sans-serif;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        font-size: 0.95rem;
+      }
+      #christmas-banner .banner-content {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-grow: 1;
+        justify-content: center;
+      }
+      #christmas-banner .banner-cta {
+        background-color: #ffffff;
+        color: #B22222;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.2s, color 0.2s;
+        white-space: nowrap;
+      }
+      #christmas-banner .banner-cta:hover {
+        background-color: #f0f0f0;
+      }
+      #close-banner-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 0 10px;
+        opacity: 0.8;
+      }
+      #close-banner-btn:hover {
+        opacity: 1;
+      }
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        #christmas-banner {
+            text-align: center;
+        }
+        #christmas-banner .banner-content {
+            flex-direction: column;
+            gap: 10px;
+        }
+      }
+    `;
+
+    // 4. Inject the HTML and CSS into the page
+    document.body.insertAdjacentHTML('afterbegin', bannerHTML);
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = bannerCSS;
+    document.head.appendChild(styleSheet);
+
+    // 5. Add functionality to the close button
+    const banner = document.getElementById('christmas-banner');
+    const closeBtn = document.getElementById('close-banner-btn');
+    if (closeBtn && banner) {
+      closeBtn.addEventListener('click', function() {
+        banner.style.display = 'none';
+        // Remember that the user closed it for this session
+        sessionStorage.setItem('christmasBannerClosed', 'true');
+      });
+    }
+
+    // Make the banner's CTA button also close the mobile nav if it's open
+    const bannerCTA = banner.querySelector('.banner-cta');
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if(bannerCTA && navToggle && navLinks) {
+        bannerCTA.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    }
+  });
+</script>
 </body>
 
 </html>
-
-
-
