@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas with Groove 101 | Leigh Village Hall Event | Live Music</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/g101logo.png">
+	<meta name="description" content="Join Groove 101 for a festive night of live Funk, Soul, Ska, Reggae, and Pop at Leigh Village Hall on Saturday 6th December at 7.30pm. Proceeds go to Halls Renovation Fund.">
+	
+    <meta property="og:title" content="Christmas with Groove 101 | Leigh Village Hall">
+    <meta property="og:description" content="Get your tickets for a fun-filled Christmas party night with live music from the award-winning Groove 101 band.">
+    <meta property="og:image" content="https://www.groove101.co.uk/leigh.jpg"> 
+    <meta property="og:url" content="https://www.groove101.co.uk/leigh-village-hall-christmas-event.html">
+    <meta property="og:type" content="website">
+
+    <style>
+        :root {
+            --primary-color: #A00000;  /* Deep Festive Red */
+            --secondary-color: #006400; /* Deep Green */
+            --accent-color: #FFC300;   /* Gold/Yellow */
+            --light-bg: #ffffff;
+            --off-white-bg: #f8f9fa;
+            --text-color: #343a40;
+            --light-text: #6c757d;
+            --font-family: 'Poppins', sans-serif;
+            --pattern-url: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e0e0e0' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h3v3H0V0zm3 3h3v3H3V3z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* --- General Section Styling --- */
+        .content-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        main section:nth-child(even) {
+            background-color: var(--off-white-bg);
+            background-image: var(--pattern-url);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* --- Buttons (CTA) --- */
+        .cta-button {
+            padding: 15px 0;
+            width: 250px; 
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s;
+            border: 2px solid transparent;
+            font-family: var(--font-family);
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button.primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-color: var(--accent-color);
+        }
+        .cta-button.primary:hover {
+            background-color: #FFD700;
+            border-color: #FFD700;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .cta-button.secondary:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* --- Layout Grids --- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-grid img { width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); } 
+        .about-grid .highlight { font-weight: 700; color: var(--secondary-color); font-size: 1.2rem; }
+        .about-grid ul { list-style: none; padding-left: 0; }
+        .about-grid ul li { margin-bottom: 10px; padding-left: 20px; position: relative; font-size: 1.1rem; }
+        .about-grid ul li::before { 
+            content: '⭐';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color); 
+            font-size: 1rem;
+        }
+
+        /* --- Header/Nav Bar --- */
+        .nav-wrapper {
+            position: static; 
+            z-index: 1000;
+            background-color: var(--light-bg);
+            border-bottom: 1px solid #e0e0e0;
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateY(0);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .nav-links-simple {
+            display: flex;
+            gap: 15px; 
+        }
+
+        .nav-links-simple a {
+            font-weight: 600;
+            border-radius: 5px;
+            display: block;
+        }
+        
+        .nav-links-simple a.primary-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .nav-links-simple a.primary-btn:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .nav-links-simple a.secondary-nav-btn {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+            padding: 8px 18px; 
+        }
+        
+        .nav-links-simple a.secondary-nav-btn:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        /* --- Footer --- */
+        footer { 
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        footer a { 
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        footer a:hover { 
+            color: #fff;
+        }
+        
+        /* --- Mobile Optimization --- */
+        @media (max-width: 768px) {
+            .section-title { font-size: 2rem; }
+            .about-grid { 
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-grid div:nth-child(1) { order: 2; }
+            .about-grid div:nth-child(2) { order: 1; } 
+            
+            .cta-button { 
+                width: 100%; 
+                font-size: 1rem;
+            }
+            .navbar { 
+                flex-direction: column; 
+                gap: 10px; 
+            }
+            .nav-links-simple { 
+                justify-content: center;
+                flex-direction: column;
+                width: 100%;
+                gap: 5px;
+            }
+            .nav-links-simple a {
+                text-align: center;
+                padding: 12px 0;
+            }
+            .nav-links-simple a.secondary-nav-btn {
+                padding: 10px 0;
+            }
+            .about-grid ul li { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-bar nav-wrapper">
+        <div class="navbar">
+            <div class="logo">
+                <a href="https://www.groove101.co.uk/" aria-label="Back to Groove 101 Homepage">
+                    <img src="images/g101logo.png" alt="Groove 101 Band Logo">
+                </a>
+            </div>
+            <nav class="nav-links-simple">
+                <a href="https://www.groove101.co.uk/#contact" class="secondary-nav-btn" target="_blank">Check Availability / Get Quote</a>
+                <a href="https://www.tickettailor.com/events/leighvillagehalls/1911096" class="primary-btn" target="_blank">Get Tickets Now!</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1 class="section-title">Christmas with Groove 101 at Leigh Village Hall 🎄</h1>
+            <div class="about-grid">
+                <div>
+                    <p>Join the award-winning Groove 101 band (as seen at major venues like Severndroog Castle and featured on BBC Radio Kent) for the ultimate Christmas party night! We'll deliver a high-energy mix of Funk, Soul, Ska, Reggae, and Pop—guaranteed to keep you on the dance floor all night long.</p>
+                    
+                    <p class="highlight">🎶 Event Details 🎶</p>
+                    <ul>
+                        <li>Date & Time: Saturday 6th December at 7.30pm</li>
+                        <li>Music: Wide mix of Funk, Soul, Ska, Reggae, and Pop</li>
+                        <li>Venue: Leigh Village Hall</li>
+                    </ul>
+
+                    <p>This is more than just a party—all proceeds from this event will go directly to the Halls Renovation Fund. Party with a purpose this Christmas!</p>
+                    
+                    <a href="https://www.tickettailor.com/events/leighvillagehalls/1911096" class="cta-button primary" target="_blank" style="margin-top: 20px;">Secure Your Tickets Today!</a>
+                </div>
+                <div>
+                    <picture>
+                        <img src="images/leigh.jpg" alt="Christmas with Groove 101 Event Poster" loading="eager">
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="padding-top: 0;">
+            <h2 class="section-title" style="margin-top: 0; padding-top: 0;">Support the Halls Renovation Fund</h2>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>By purchasing a ticket, you're not just securing a great night out; you are contributing to a vital cause. Every penny supports the Leigh Village Halls Renovation Fund, helping to maintain this important community venue.</p>
+                <p>Don't miss this opportunity for high-energy live music from one of the South East's premier party bands!</p>
+                <a href="https://www.tickettailor.com/events/leighvillagehalls/1911096" class="cta-button secondary" target="_blank" style="margin-top: 20px;">Visit the Booking Page</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p><a href="https://www.groove101.co.uk/" target="_blank">Back to Groove 101 Main Site</a> | <a href="http://www.leighvillagehalls.org.uk" target="_blank">Leigh Village Hall Website</a></p>
+        <p>&copy; Groove 101 Band 2025. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
