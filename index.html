@@ -14,12 +14,20 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#9d3a6c">
-	<meta name="description" content="Groove 101 is the ultimate award-winning party band for weddings, corporate events, and functions in Kent and the South East. Book now for an unforgettable live music experience.">
-	<meta property="og:title" content="Groove 101 - Live Music for Unforgettable Events">
-    <meta property="og:description" content="Award-winning party band for weddings and corporate events.">
+	<meta name="description" content="Award-winning wedding & party band in Kent, London & South East. Groove 101 brings 10+ years of live music experience to weddings, corporate events & private parties. Book direct - no agency fees.">
+    <meta name="keywords" content="wedding band Kent, party band London, live band South East, wedding entertainment, corporate band, function band, Royal Tunbridge Wells band, Greenwich band">
+	<meta property="og:title" content="Groove 101 - Wedding & Party Band | Kent, London & South East">
+    <meta property="og:description" content="Award-winning party band for weddings and corporate events in Kent & South East. Book direct with no agency fees.">
     <meta property="og:image" content="https://www.groove101.co.uk/images/hero-background.jpg">
     <meta property="og:url" content="https://www.groove101.co.uk/">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Groove 101 - Wedding & Party Band | Kent, London & South East">
+    <meta name="twitter:description" content="Award-winning party band for weddings and corporate events in Kent & South East.">
+    <meta name="twitter:image" content="https://www.groove101.co.uk/images/hero-background.jpg">
     <style>
         html {
             box-sizing: border-box;
@@ -148,24 +156,161 @@
             transform: translateY(-3px);
         }
 
-        /* --- Sticky Navigation --- */
+        /* Sticky CTA in Nav */
+        .nav-cta-button {
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.2s;
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+        .nav-cta-button:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+        .nav-wrapper:not(.scrolled) .nav-cta-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid var(--accent-color);
+        }
+
+        /* Hero urgency */
+        .hero-urgency {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+        .hero-badge {
+            background-color: rgba(157, 58, 108, 0.9);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+            font-size: 0.9rem;
+            border: 2px solid var(--accent-color);
+        }
+
+        /* Quick quote section */
+        .quick-quote-section {
+            background: linear-gradient(135deg, var(--primary-color), #b8478a);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .quick-quote-form {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 30px auto 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .quick-quote-form h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .quick-quote-form input,
+        .quick-quote-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-family);
+            font-size: 1rem;
+        }
+        .quick-quote-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .quick-quote-form button:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Section CTAs */
+        .section-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .section-cta .cta-button {
+            display: inline-block;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .why-choose-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .why-choose-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+        .why-choose-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .why-choose-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .why-choose-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        .why-choose-card p {
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        /* --- Fixed Navigation --- */
         .nav-wrapper {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e0e0e0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-50px);
-            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+            background-color: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.4s ease, border-color 0.4s ease;
         }
 
         .nav-wrapper.scrolled {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom-color: #e0e0e0;
         }
 
         .navbar {
@@ -187,17 +332,31 @@
         }
 
         .nav-links a {
-            color: var(--text-color);
+            color: #fff;
             text-decoration: none;
             font-weight: 600;
             padding: 10px 15px;
+            border: 2px solid transparent;
             border-radius: 5px;
             transition: background-color 0.2s, color 0.2s;
             display: block;
+            white-space: nowrap;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         .nav-links a:hover,
         .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .nav-wrapper.scrolled .nav-links a {
+            color: var(--text-color);
+            text-shadow: none;
+        }
+
+        .nav-wrapper.scrolled .nav-links a:hover,
+        .nav-wrapper.scrolled .nav-links a.active {
             background-color: var(--primary-color);
             color: #fff;
         }
@@ -407,17 +566,11 @@
         }
         
         @media (max-width: 768px) {
-            .nav-wrapper {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-                position: sticky;
-                background-color: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                border-bottom: 1px solid #e0e0e0;
-            }
+            .navbar { justify-content: space-between; }
 
-            .navbar { justify-content: flex-end; }
+            .nav-cta-button {
+                display: none; /* Hide in mobile - they'll use hero CTAs */
+            }
 
             .mobile-nav-toggle {
                 display: block !important;
@@ -434,7 +587,7 @@
                 position: relative;
                 width: 35px;
                 height: 4px;
-                background: var(--text-color);
+                background: #fff;
                 transition: background 0s 0.2s;
             }
 
@@ -445,11 +598,15 @@
                 left: 0;
                 width: 35px;
                 height: 4px;
-                background: var(--text-color);
+                background: #fff;
                 transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
             }
             .mobile-nav-toggle .hamburger-icon::before { top: -11px; }
             .mobile-nav-toggle .hamburger-icon::after { bottom: -11px; }
+
+            .nav-wrapper.scrolled .mobile-nav-toggle .hamburger-icon,
+            .nav-wrapper.scrolled .mobile-nav-toggle .hamburger-icon::before,
+            .nav-wrapper.scrolled .mobile-nav-toggle .hamburger-icon::after { background: var(--text-color); }
 
             .mobile-nav-toggle:hover .hamburger-icon,
             .mobile-nav-toggle:hover .hamburger-icon::before,
@@ -458,7 +615,7 @@
             .mobile-nav-toggle.active .hamburger-icon { background: transparent; }
             .mobile-nav-toggle.active .hamburger-icon::before { top: 0; transform: rotate(45deg); }
             .mobile-nav-toggle.active .hamburger-icon::after { bottom: 0; transform: rotate(-45deg); }
-            
+
             .nav-links {
                 position: absolute;
                 top: 100%;
@@ -477,7 +634,7 @@
             .nav-links.active { max-height: 500px; padding: 10px 0; }
             .nav-links li { width: 100%; border-bottom: 1px solid #f0f0f0; }
             .nav-links li:last-child { border-bottom: none; }
-            .nav-links a { padding: 12px 20px; text-align: center; border-radius: 0; border-left: 4px solid transparent; }
+            .nav-links a { padding: 12px 20px; text-align: center; border-radius: 0; border-left: 4px solid transparent; color: var(--text-color); text-shadow: none; }
             .nav-links a:hover,
             .nav-links a.active { background-color: transparent; color: var(--primary-color); }
             .nav-links a.active { border-left-color: var(--accent-color); font-weight: 700; }
@@ -492,6 +649,15 @@
             .section-title { font-size: 2rem; }
             .hero h1 { font-size: 1.1rem; }
             .band-card h3 { font-size: 1.3rem; }
+
+            .hero-badge, .hero-urgency {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+
+            .why-choose-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 992px) and (min-width: 769px) {
@@ -501,21 +667,31 @@
         .footer-social-icons {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 15px;
             margin-bottom: 25px;
         }
         .footer-social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #333;
             color: #a0a0a0;
-            display: inline-block;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
         }
         .footer-social-icons a:hover {
-            color: #ffffff;
-            transform: scale(1.15);
+            transform: translateY(-3px);
+            border-color: currentColor;
         }
+        .footer-social-icons a[aria-label="WhatsApp"]:hover { color: #25D366; }
+        .footer-social-icons a[aria-label="Facebook"]:hover { color: #1877F2; }
+        .footer-social-icons a[aria-label="YouTube"]:hover { color: #FF0000; }
+        .footer-social-icons a[aria-label="Instagram"]:hover { color: #E4405F; }
         .footer-social-icons svg {
-            width: 30px;
-            height: 30px;
+            width: 22px;
+            height: 22px;
             fill: currentColor;
         }
         
@@ -579,19 +755,259 @@
         .fab-container.active .fab-icon-link:nth-child(2) { transform: translateY(-135px) scale(1); }
         .fab-container.active .fab-icon-link:nth-child(3) { transform: translateY(-200px) scale(1); }
         .fab-container.active .fab-icon-link:nth-child(4) { transform: translateY(-265px) scale(1); }
+
+        /* --- Scroll Animations --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            z-index: 9999;
+            border-radius: 0 0 5px 5px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "Groove 101",
+      "alternateName": "Groove 101 Band",
+      "description": "Award-winning wedding and party band serving Kent, London and the South East of England",
+      "url": "https://www.groove101.co.uk",
+      "logo": "https://www.groove101.co.uk/images/g101logo.png",
+      "image": "https://www.groove101.co.uk/images/hero-background.jpg",
+      "email": "bookings@groove101.co.uk",
+      "telephone": "+447507681662",
+      "genre": ["Funk", "Soul", "Pop", "Ska", "Reggae"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "South East England",
+        "addressCountry": "GB"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "London"
+        },
+        {
+          "@type": "City",
+          "name": "Royal Tunbridge Wells"
+        },
+        {
+          "@type": "City",
+          "name": "Greenwich"
+        },
+        {
+          "@type": "State",
+          "name": "Kent"
+        }
+      ],
+      "priceRange": "£££",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "50",
+        "bestRating": "5"
+      },
+      "award": "Royal Borough of Greenwich Civic Award 2024",
+      "foundingDate": "2013",
+      "sameAs": [
+        "https://www.facebook.com/groove101uk",
+        "https://www.instagram.com/groove101band",
+        "https://www.youtube.com/@groove101band"
+      ],
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Ms Kyia",
+          "jobTitle": "Vocalist"
+        },
+        {
+          "@type": "Person",
+          "name": "Lauren",
+          "jobTitle": "Vocalist"
+        },
+        {
+          "@type": "Person",
+          "name": "Russell",
+          "jobTitle": "Saxophone & Keyboards"
+        },
+        {
+          "@type": "Person",
+          "name": "Paul",
+          "jobTitle": "Trumpet"
+        },
+        {
+          "@type": "Person",
+          "name": "Mark",
+          "jobTitle": "Trombone, Violin & Vocals"
+        },
+        {
+          "@type": "Person",
+          "name": "John",
+          "jobTitle": "Bass"
+        },
+        {
+          "@type": "Person",
+          "name": "Steve",
+          "jobTitle": "Guitar & Percussion"
+        },
+        {
+          "@type": "Person",
+          "name": "Dave",
+          "jobTitle": "Drums"
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Groove 101 Wedding & Party Band",
+      "image": "https://www.groove101.co.uk/images/hero-background.jpg",
+      "telephone": "+447507681662",
+      "email": "bookings@groove101.co.uk",
+      "url": "https://www.groove101.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "South East England",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "51.2362",
+          "longitude": "0.5704"
+        },
+        "geoRadius": "50000"
+      },
+      "priceRange": "£££",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "50"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Band Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wedding Band",
+              "description": "Complete wedding entertainment including first dance, ceremony music, and reception party"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corporate Event Band",
+              "description": "Professional live music for corporate events and functions"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Private Party Band",
+              "description": "Live band entertainment for private parties and celebrations"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's the booking process and how much do you charge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The best way to start is by using our contact form for a no-obligation quote, as costs vary depending on the event location and your specific requirements. By booking direct, you won't pay expensive agency fees. To help you decide, you can see examples of our live performances on our social media channels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can we expect from your performance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We play a high-energy mix of Funk, Soul, Ska, Reggae and Pop from across the decades, designed to keep the dance floor full. Our standard performance is two 60-minute sets, but we are happy to tailor this to suit your needs (e.g., up to three hours of live music). With advance notice, you can request a special song for your event."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do you provide for weddings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Creating the perfect atmosphere for weddings is our specialty. We offer your first dance performance (we learn your special song), up to three hours of high-energy live music, and a relaxed instrumental set for drinks reception or dinner. We handle all the details, from coordinating seamlessly with your venue to dressing smartly for the occasion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide a DJ service or other extras?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, a DJ service between our live sets is included at no extra cost to keep the party atmosphere going."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are your travel and technical requirements?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are based in the South East but regularly travel for events. At the venue, we require about 90 minutes for setup, a stage area of approximately 5x3 metres with access to at least two 13A power sockets. We typically dress smartly but are happy to match a specific theme if requested in advance."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <header id="home" class="hero">
-        <a href="#home" aria-label="Back to Homepage">
-            <img src="images/g101logo.png" alt="Groove 101 Band Logo" class="hero-logo">
-        </a>
-        <h1>Live Music for Unforgettable Events</h1>
-        <div class="hero-cta-container">
-            <a href="#contact" class="cta-button primary">Check Availability or Get a Quote</a>
-            <a href="#video" class="cta-button secondary">Watch Us Play</a>
-        </div>
-    </header>
+    <a href="#about" class="skip-link">Skip to main content</a>
 
     <div class="nav-wrapper">
         <nav class="navbar">
@@ -602,17 +1018,51 @@
                 <li><a href="#repertoire">Repertoire</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#video">Video</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="#quick-quote" class="nav-cta-button">Check Availability</a>
             <button class="mobile-nav-toggle" aria-label="Toggle navigation">
                 <span class="hamburger-icon"></span>
             </button>
         </nav>
     </div>
 
+    <header id="home" class="hero">
+        <a href="#home" aria-label="Back to Homepage">
+            <img src="images/g101logo.png" alt="Groove 101 Band Logo" class="hero-logo">
+        </a>
+        <div class="hero-badge">🏆 Royal Borough of Greenwich Civic Award Winner 2024</div>
+        <h1>Live Music for Unforgettable Events</h1>
+        <div class="hero-urgency">2026 Wedding & Event Dates Available</div>
+        <div class="hero-cta-container">
+            <a href="#quick-quote" class="cta-button primary">Get Your Free Quote</a>
+            <a href="#video" class="cta-button secondary">Watch Us Play</a>
+        </div>
+    </header>
+
     <main>
-        <section id="about" class="content-section">
+        <section id="quick-quote" class="quick-quote-section fade-in">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Get Your Free Quote</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 0;">No obligation. Direct booking - no agency fees. We'll respond as soon as possible.</p>
+            <form class="quick-quote-form" action="https://formspree.io/f/xwpqvkvy" method="POST">
+                <h3>Quick Quote Request</h3>
+                <input type="text" name="quick_name" placeholder="Your Name *" required>
+                <input type="email" name="quick_email" placeholder="Your Email *" required>
+                <input type="tel" name="quick_phone" placeholder="Your Phone Number">
+                <input type="date" name="quick_event_date" placeholder="Event Date *" required>
+                <input type="text" name="quick_venue" placeholder="Venue / Location *" required>
+                <p class="form-honeypot" style="opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1;">
+                    <label for="quick_comment">Leave this field empty</label>
+                    <input type="text" id="quick_comment" name="quick_comment" tabindex="-1">
+                </p>
+                <button type="submit">Get My Free Quote</button>
+                <p style="font-size: 0.85rem; color: #666; margin-top: 15px;">★★★★★ Trusted by hundreds of happy clients</p>
+            </form>
+        </section>
+
+        <section id="about" class="content-section fade-in">
             <h2 class="section-title">The Ultimate Party Band</h2>
             <div class="about-grid">
                 <div>
@@ -626,9 +1076,36 @@
                     </picture>
                 </div>
             </div>
+
+            <div class="why-choose-grid">
+                <div class="why-choose-card">
+                    <div class="icon">🏆</div>
+                    <h3>Award-Winning</h3>
+                </div>
+                <div class="why-choose-card">
+                    <div class="icon">💰</div>
+                    <h3>No Agency Fees</h3>
+                </div>
+                <div class="why-choose-card">
+                    <div class="icon">🎵</div>
+                    <h3>Free DJ Service</h3>
+                </div>
+                <div class="why-choose-card">
+                    <div class="icon">⭐</div>
+                    <h3>10+ Years Experience</h3>
+                </div>
+                <div class="why-choose-card">
+                    <div class="icon">💍</div>
+                    <h3>Wedding Specialists</h3>
+                </div>
+                <div class="why-choose-card">
+                    <div class="icon">✅</div>
+                    <h3>Fully Insured</h3>
+                </div>
+            </div>
         </section>
 
-        <section id="band" class="content-section">
+        <section id="band" class="content-section fade-in">
             <h2 class="section-title">Meet the Band</h2>
             <div class="band-grid">
                  <div class="band-card">
@@ -706,7 +1183,7 @@
             </div>
         </section>
 
-        <section id="repertoire" class="content-section">
+        <section id="repertoire" class="content-section fade-in">
             <h2 class="section-title">Sample Repertoire</h2>
             <p class="repertoire-intro">To give you an idea of our sound, here's a taste of the artists and genres that shape our live sets. Our repertoire is constantly evolving to keep things fresh, and we're always happy to discuss special requests to make your event perfect.</p>
             <div class="repertoire-grid">
@@ -725,11 +1202,11 @@
             </div>
         </section>
         
-        <section id="testimonials" class="content-section">
+        <section id="testimonials" class="content-section fade-in">
             <h2 class="section-title">What Our Clients Say</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p class="quote">"I cannot thank you all enough for such a brilliant night. You were all that i hoped for and more and all of my guests thought the same. Please pass on my thanks to all of the band. I hope to see you play live again soon.""</p>
+                    <p class="quote">"I cannot thank you all enough for such a brilliant night. You were all that i hoped for and more and all of my guests thought the same. Please pass on my thanks to all of the band. I hope to see you play live again soon."</p>
                     <p class="attribution">- 50th Birthday @ The Grey Lady, Royal Tunbridge Wells</p>
                 </div>
                 <div class="testimonial-card">
@@ -741,66 +1218,74 @@
                     <p class="attribution">- Party in Culverdon Park, Royal Tunbridge Wells</p>
                 </div>
             </div>
+            <div class="section-cta">
+                <p style="font-size: 1.2rem; margin-bottom: 20px; color: var(--light-text);">Ready to make your event unforgettable?</p>
+                <a href="#quick-quote" class="cta-button primary">Check Our Availability</a>
+            </div>
         </section>
         
-        <section id="seen-at" class="content-section">
+        <section id="seen-at" class="content-section fade-in">
             <h2 class="section-title">As Seen At</h2>
             <div class="logo-grid">
                 <div class="logo-item">
-                    <a href="https://www.twfringe.com/" target="_blank" title="Tunbridge Wells Fringe Festival">
+                    <a href="https://www.twfringe.com/" target="_blank" rel="noopener noreferrer" title="Tunbridge Wells Fringe Festival">
                         <img src="images/twfringelogo.webp" alt="Tunbridge Wells Fringe Festival Logo">
                     </a>
                 </div>
                 <div class="logo-item">
-                    <a href="https://www.royalgreenwich.gov.uk/info/200164/about_the_royal_borough/2530/civic_awards_2024" target="_blank" title="Royal Borough of Greenwich Civic Awards">
+                    <a href="https://www.royalgreenwich.gov.uk/info/200164/about_the_royal_borough/2530/civic_awards_2024" target="_blank" rel="noopener noreferrer" title="Royal Borough of Greenwich Civic Awards">
                         <img src="images/rbglogo.webp" alt="Royal Borough of Greenwich">
                     </a>
                 </div>
                 <div class="logo-item">
-                    <a href="https://www.bbc.co.uk/sounds/play/live/bbc_radio_kent" target="_blank" title="BBC Radio Kent">
+                    <a href="https://www.bbc.co.uk/sounds/play/live/bbc_radio_kent" target="_blank" rel="noopener noreferrer" title="BBC Radio Kent">
                         <img src="images/bbckentlogo.webp" alt="BBC Radio Kent">
                     </a>
                 </div>
                 <div class="logo-item">
-                    <a href="https://www.itn.co.uk/newsrooms/itv-news" target="_blank" title="ITN News">
+                    <a href="https://www.itn.co.uk/newsrooms/itv-news" target="_blank" rel="noopener noreferrer" title="ITN News">
                         <img src="images/itnlogo.webp" alt="ITN News">
                     </a>
                 </div>
                 <div class="logo-item">
-                    <a href="https://severndroogcastle.org.uk/" target="_blank" title="Severndroog Castle">
+                    <a href="https://severndroogcastle.org.uk/" target="_blank" rel="noopener noreferrer" title="Severndroog Castle">
                         <img src="images/castlelogo.webp" alt="Severndroog Castle">
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="video" class="content-section">
+        <section id="video" class="content-section fade-in">
             <h2 class="section-title">See Us In Action</h2>
             <div class="video-grid">
                 <div class="video-wrapper">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6bzKOg7KRoM?si=tHkCz1uGn46BZHMJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6bzKOg7KRoM?si=tHkCz1uGn46BZHMJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>                </div>
                 <div class="video-wrapper">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nRG-_P0uXn0?si=_-yg2nAGj96sm6Go" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nRG-_P0uXn0?si=_-yg2nAGj96sm6Go" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>                </div>
+            </div>
+            <div class="section-cta">
+                <p style="font-size: 1.2rem; margin-bottom: 20px; color: var(--light-text);">Love what you see? Let's make it happen!</p>
+                <a href="#quick-quote" class="cta-button primary">Get Your Free Quote Now</a>
             </div>
         </section>
 
-        <section id="faq" class="content-section">
+        <section id="faq" class="content-section fade-in">
             <h2 class="section-title">Frequently Asked Questions</h2>
             <div class="faq-accordion">
                 <div class="faq-item">
-                    <button class="faq-question">What's the booking process and how much do you charge?</button>
+                    <button class="faq-question" aria-expanded="false">What's the booking process and how much do you charge?</button>
                     <div class="faq-answer">
                         <p>The best way to start is by using our contact form for a no-obligation quote, as costs vary depending on the event location and your specific requirements. By booking direct, you won’t pay expensive agency fees. To help you decide, you can see examples of our live performances on our social media channels.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">What can we expect from your performance?</button>
+                    <button class="faq-question" aria-expanded="false">What can we expect from your performance?</button>
                     <div class="faq-answer">
                         <p>We play a high-energy mix of Funk, Soul, Ska, Reggae and Pop from across the decades, designed to keep the dance floor full. Our standard performance is two 60-minute sets, but we are happy to tailor this to suit your needs (e.g., up to three hours of live music). With advance notice, you can request a special song for your event.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">What do you provide for weddings?</button>
+                    <button class="faq-question" aria-expanded="false">What do you provide for weddings?</button>
                     <div class="faq-answer">
                         <p>Creating the perfect atmosphere for weddings is our specialty. We understand that every wedding is unique and offer a range of services to match your day:</p>
                         <ul>
@@ -812,26 +1297,26 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Do you provide a DJ service or other extras?</button>
+                    <button class="faq-question" aria-expanded="false">Do you provide a DJ service or other extras?</button>
                     <div class="faq-answer">
                         <p>Yes, a DJ service between our live sets is included at no extra cost to keep the party atmosphere going.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">What are your travel and technical requirements?</button>
+                    <button class="faq-question" aria-expanded="false">What are your travel and technical requirements?</button>
                     <div class="faq-answer">
                         <p>We are based in the South East but regularly travel for events, so please get in touch to discuss your location. At the venue, we require about 90 minutes for setup, a stage area of approximately 5x3 metres with access to at least two 13A power sockets. We typically dress smartly but are happy to match a specific theme if requested in advance.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Got another question?</button>
+                    <button class="faq-question" aria-expanded="false">Got another question?</button>
                     <div class="faq-answer">
                         <p>We'd love to hear from you. For detailed event enquiries, the best way to get in touch is via our <a href="#contact">contact form</a>. For general questions or if the form isn't suitable, you can email us directly at <a href="mailto:bookings@groove101.co.uk">bookings@groove101.co.uk</a>. If it’s important to you, it’s important to us.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="contact" class="content-section">
+        <section id="contact" class="content-section fade-in">
             <h2 class="section-title">Contact Us</h2>
 
             <div class="form-intro-box">
@@ -868,7 +1353,6 @@
                         <option value="Wedding">Wedding</option>
                         <option value="Corporate Event">Corporate Event</option>
                         <option value="Private Party">Private Party</option>
-						<option value="Wedding">Christmas Party</option>
                         <option value="Other">Other</option>
                     </select>
 
@@ -915,16 +1399,16 @@
     </main>
     
     <div class="fab-container">
-        <a href="https://wa.me/+4407507681662" target="_blank" aria-label="WhatsApp" class="fab-icon-link">
-            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52s-.67-.816-.916-1.123c-.244-.306-.487-.262-.67-.268-.182-.006-.381-.008-.58-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+        <a href="https://wa.me/+4407507681662" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="fab-icon-link">
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         </a>
-        <a href="https://www.facebook.com/groove101uk" target="_blank" aria-label="Facebook" class="fab-icon-link">
+        <a href="https://www.facebook.com/groove101uk" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="fab-icon-link">
             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
-        <a href="https://www.instagram.com/groove101band" target="_blank" aria-label="Instagram" class="fab-icon-link">
+        <a href="https://www.instagram.com/groove101band" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="fab-icon-link">
             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.717 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126C21.314 1.67 20.644 1.258 19.854.953c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.06 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.38.896-.423.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.585-.015-4.85-.074c-1.17-.06-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.82-896-1.38-.164-.423-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.585.074-4.85c.06-1.17.249-1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819-.679 1.38-.896.423-.164 1.057.36 2.227.413C8.415 2.175 8.797 2.16 12 2.16zm0 5.482A4.36 4.36 0 1012 16.36 4.36 4.36 0 0012 7.64zM12 14.2a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4zm6.406-6.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
         </a>
-         <a href="https://www.youtube.com/@groove101band" target="_blank" aria-label="YouTube" class="fab-icon-link">
+         <a href="https://www.youtube.com/@groove101band" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="fab-icon-link">
           <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
         <button class="fab-trigger" aria-label="Toggle Social Links">
@@ -934,16 +1418,16 @@
 
     <footer>
         <div class="footer-social-icons">
-            <a href="https://wa.me/+4407507681662" target="_blank" aria-label="WhatsApp">
-                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52s-.67-.816-.916-1.123c-.244-.306-.487-.262-.67-.268-.182-.006-.381-.008-.58-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            <a href="https://wa.me/+4407507681662" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </a>
-            <a href="https://www.facebook.com/groove101uk" target="_blank" aria-label="Facebook">
+            <a href="https://www.facebook.com/groove101uk" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="https://www.youtube.com/@groove101band" target="_blank" aria-label="YouTube">
+            <a href="https://www.youtube.com/@groove101band" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
-            <a href="https://www.instagram.com/groove101band" target="_blank" aria-label="Instagram">
+            <a href="https://www.instagram.com/groove101band" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.717 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126C21.314 1.67 20.644 1.258 19.854.953c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.06 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.38.896-.423.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.585-.015-4.85-.074c-1.17-.06-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.82-896-1.38-.164-.423-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.585.074-4.85c.06-1.17.249-1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819-.679 1.38-.896.423-.164 1.057.36 2.227.413C8.415 2.175 8.797 2.16 12 2.16zm0 5.482A4.36 4.36 0 1012 16.36 4.36 4.36 0 0012 7.64zM12 14.2a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4zm6.406-6.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
             </a>
         </div>
@@ -951,7 +1435,7 @@
         <br><br>
         <a href="mailto:bookings@groove101.co.uk">bookings@groove101.co.uk</a> | <a href="tel:+447507681662">07507 681662</a>
         <br><br>
-	    © Groove 101 Band 2025. All rights reserved.
+	    © Groove 101 Band <script>document.write(new Date().getFullYear())</script>. All rights reserved.
     </footer>
 
     <script>
@@ -1022,11 +1506,25 @@
             faqQuestions.forEach(button => {
                 button.addEventListener('click', () => {
                     const answer = button.nextElementSibling;
-                    const isActive = button.classList.toggle('active');
-                    
-                    if (isActive) {
+                    const isActive = button.classList.contains('active');
+
+                    // Close all other open items
+                    faqQuestions.forEach(otherBtn => {
+                        if (otherBtn !== button && otherBtn.classList.contains('active')) {
+                            otherBtn.classList.remove('active');
+                            otherBtn.setAttribute('aria-expanded', 'false');
+                            otherBtn.nextElementSibling.style.maxHeight = '0';
+                        }
+                    });
+
+                    // Toggle clicked item
+                    if (!isActive) {
+                        button.classList.add('active');
+                        button.setAttribute('aria-expanded', 'true');
                         answer.style.maxHeight = answer.scrollHeight + 'px';
                     } else {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-expanded', 'false');
                         answer.style.maxHeight = '0';
                     }
                 });
@@ -1066,6 +1564,60 @@
                 contactForm.addEventListener("submit", handleSubmit);
             }
 
+            // --- Quick Quote Form Logic ---
+            const quickQuoteForm = document.querySelector('.quick-quote-form');
+            if (quickQuoteForm) {
+                async function handleQuickSubmit(event) {
+                    event.preventDefault();
+                    const data = new FormData(event.target);
+                    const submitButton = event.target.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+
+                    try {
+                        submitButton.textContent = 'Sending...';
+                        submitButton.disabled = true;
+
+                        const response = await fetch(event.target.action, {
+                            method: quickQuoteForm.method,
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+
+                        if (response.ok) {
+                            quickQuoteForm.innerHTML = '<div style="text-align: center; padding: 40px;"><h3 style="color: var(--primary-color); margin-bottom: 15px;">✓ Quote Request Sent!</h3><p style="color: #666;">We\'ll get back to you as soon as possible.</p></div>';
+                        } else {
+                            submitButton.textContent = 'Error - Please try again';
+                            submitButton.disabled = false;
+                            setTimeout(() => {
+                                submitButton.textContent = originalText;
+                            }, 3000);
+                        }
+                    } catch (error) {
+                        submitButton.textContent = 'Error - Please try again';
+                        submitButton.disabled = false;
+                        setTimeout(() => {
+                            submitButton.textContent = originalText;
+                        }, 3000);
+                    }
+                }
+                quickQuoteForm.addEventListener("submit", handleQuickSubmit);
+            }
+
+            // --- Scroll Fade-In Animations ---
+            const fadeEls = document.querySelectorAll('.fade-in');
+            if (fadeEls.length > 0) {
+                const fadeObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            fadeObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+
+                fadeEls.forEach(el => fadeObserver.observe(el));
+            }
+
             // --- Floating Action Button (FAB) Logic ---
             const fabContainer = document.querySelector('.fab-container');
             const fabTrigger = document.querySelector('.fab-trigger');
@@ -1078,105 +1630,6 @@
         });
     </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // 1. Check if the banner was already closed in this session
-    if (sessionStorage.getItem('christmasBannerClosed')) {
-      return;
-    }
-
-  // 2. Define the CSS styles for the banner
-    const bannerCSS = `
-      #christmas-banner {
-        position: sticky;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #B22222; /* Festive deep red */
-        color: #ffffff;
-        z-index: 1001; /* Ensures it's above the sticky nav */
-        padding: 12px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-family: 'Poppins', sans-serif;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        font-size: 0.95rem;
-      }
-      #christmas-banner .banner-content {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-grow: 1;
-        justify-content: center;
-      }
-      #christmas-banner .banner-cta {
-        background-color: #ffffff;
-        color: #B22222;
-        padding: 8px 16px;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: 600;
-        transition: background-color 0.2s, color 0.2s;
-        white-space: nowrap;
-      }
-      #christmas-banner .banner-cta:hover {
-        background-color: #f0f0f0;
-      }
-      #close-banner-btn {
-        background: none;
-        border: none;
-        color: #ffffff;
-        font-size: 2rem;
-        cursor: pointer;
-        line-height: 1;
-        padding: 0 10px;
-        opacity: 0.8;
-      }
-      #close-banner-btn:hover {
-        opacity: 1;
-      }
-      /* Mobile responsiveness */
-      @media (max-width: 768px) {
-        #christmas-banner {
-            text-align: center;
-        }
-        #christmas-banner .banner-content {
-            flex-direction: column;
-            gap: 10px;
-        }
-      }
-    `;
-
-    // 4. Inject the HTML and CSS into the page
-    document.body.insertAdjacentHTML('afterbegin', bannerHTML);
-    const styleSheet = document.createElement("style");
-    styleSheet.innerText = bannerCSS;
-    document.head.appendChild(styleSheet);
-
-    // 5. Add functionality to the close button
-    const banner = document.getElementById('christmas-banner');
-    const closeBtn = document.getElementById('close-banner-btn');
-    if (closeBtn && banner) {
-      closeBtn.addEventListener('click', function() {
-        banner.style.display = 'none';
-        // Remember that the user closed it for this session
-        sessionStorage.setItem('christmasBannerClosed', 'true');
-      });
-    }
-
-    // Make the banner's CTA button also close the mobile nav if it's open
-    const bannerCTA = banner.querySelector('.banner-cta');
-    const navToggle = document.querySelector('.mobile-nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if(bannerCTA && navToggle && navLinks) {
-        bannerCTA.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
-    }
-  });
-</script>
 </body>
 
 </html>
