@@ -1,4 +1,4 @@
-html {
+﻿html {
     box-sizing: border-box;
 }
 
@@ -172,3 +172,4 @@ footer a:hover { color: var(--accent-color); }
         height: 40px;
     }
 }
+
