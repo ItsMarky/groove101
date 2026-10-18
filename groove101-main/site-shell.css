@@ -1,0 +1,122 @@
+/* Shared navigation, footer and base identity across every content page. */
+:root{--ink:#17101d;--ink-soft:#24182c;--cream:#f7f1e8;--paper:#fffaf3;--white:#fff;--plum:#9d3a6c;--plum-dark:#702249;--orange:#ed8a31;--gold:#f3ba63;--muted:#6f6672;--line:rgba(23,16,29,.14);--sans:"Manrope",system-ui,sans-serif;--font-family:"Manrope",system-ui,sans-serif}
+html{scroll-padding-top:96px}body{font-family:var(--sans)}body.nav-open{overflow:hidden}
+.site-header,.site-header *,.site-footer,.site-footer *{box-sizing:border-box}
+.site-header{position:fixed;inset:0 0 auto;z-index:1000;background:rgba(23,16,29,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.13);font-family:var(--sans);line-height:1.65}
+.site-header.scrolled{background:rgba(23,16,29,.97)}
+.site-header .wrap,.site-footer .wrap{width:min(1180px,calc(100% - 40px));max-width:none;margin-inline:auto;padding:0}
+.site-header .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:0}
+.site-header .nav-logo{display:block;flex-shrink:0}.site-header .nav-logo img{display:block;width:148px;height:auto;max-width:100%}
+.site-header .nav-links{display:flex;align-items:center;flex-wrap:nowrap;gap:4px;margin:0 0 0 auto;padding:0;list-style:none;height:auto}
+.site-header .nav-links li{margin:0;padding:0;list-style:none}
+.site-header .nav-links a{display:block;padding:10px;color:rgba(255,255,255,.85);font-size:.85rem;font-weight:700;text-decoration:none;border:0;border-radius:0;background:transparent;white-space:nowrap}
+.site-header .nav-links a:hover,.site-header .nav-links a[aria-current="page"]{color:var(--gold);background:transparent}
+.site-header .button,.site-footer .button{display:inline-flex;min-height:46px;width:auto;align-items:center;justify-content:center;gap:10px;padding:0 20px;border:1px solid transparent;border-radius:999px;background:var(--orange);color:var(--ink);font-family:var(--sans);font-size:.85rem;font-weight:800;line-height:1.5;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s}
+.site-header .button:hover,.site-footer .button:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+.site-header .menu-toggle{display:none;place-items:center;flex-shrink:0;width:48px;height:48px;padding:0;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:transparent;color:white;font:1.4rem var(--sans);cursor:pointer}
+.site-header .mobile-nav-contact{display:none}
+.site-header a:focus-visible,.site-header button:focus-visible,.site-footer a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.site-footer{display:block;padding:44px 0 26px;margin:0;background:#0e0912;color:rgba(255,255,255,.65);text-align:left;font-family:var(--sans);line-height:1.7}
+.site-footer .footer-grid{display:grid;grid-template-columns:1.3fr .8fr .9fr 1.15fr;gap:28px;align-items:start}
+.site-footer .footer-logo{display:block;width:148px;height:auto;max-width:100%;margin:0 0 16px}
+.site-footer p{margin:0 0 6px;font-size:.8rem;line-height:1.7;color:rgba(255,255,255,.65)}
+.site-footer h2{margin:0 0 14px;color:var(--gold);font:800 .85rem/1.4 var(--sans);letter-spacing:0;text-align:left}
+.site-footer h2::before,.site-footer h2::after{display:none}
+.site-footer .footer-nav-group,.site-footer .footer-contact{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.site-footer a{font-size:.8rem;font-weight:600;text-decoration:none;color:rgba(255,255,255,.78)}.site-footer a:hover{color:var(--gold)}
+.site-footer .footer-nav-group a,.site-footer .footer-contact>a:not(.button){line-height:1.7;overflow-wrap:anywhere}
+.site-footer .footer-socials{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.site-footer .footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;min-height:40px;padding:0;border:1px solid rgba(255,255,255,.15);border-radius:50%;background:rgba(255,255,255,.035)}
+.site-footer .footer-socials svg{display:block;width:22px;height:22px;flex-shrink:0}
+.site-footer .footer-contact .button{min-height:44px;margin-bottom:4px;padding:0 18px;font-size:.8rem;color:var(--ink)}
+.site-footer .footer-bottom{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12)}
+.site-footer .footer-bottom p{margin:0 auto 0 0;font-size:.72rem}.site-footer .footer-bottom a{font-size:.72rem;color:rgba(255,255,255,.7)}
+/* Refresh older venue and information layouts without changing their content. */
+.legacy-page{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.75}
+.legacy-page>main{padding-top:78px}.legacy-page .content-section{box-sizing:border-box;width:min(1180px,calc(100% - 40px));max-width:none;margin-inline:auto;padding:54px 0}
+.legacy-page main section:nth-child(even){background:transparent}
+.legacy-page h1,.legacy-page h2,.legacy-page h3{font-family:var(--sans);line-height:1.15;letter-spacing:-.03em;font-weight:800}
+.legacy-page .section-title{font-size:clamp(2rem,4.6vw,3.7rem);color:var(--ink);margin:0 0 28px;text-wrap:balance}
+.legacy-page .section-title::after{background:var(--orange);border-radius:99px}
+.legacy-page .about-grid{gap:36px}.legacy-page .about-grid img{max-width:100%;border-radius:20px}
+.legacy-page .about-grid p,.legacy-page .about-grid ul,.legacy-page .venue-hub{font-size:1rem}
+.legacy-page .cta-button{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:8px;width:auto;max-width:100%;min-height:50px;padding:12px 24px;border:1px solid transparent;border-radius:999px;background:var(--orange);color:var(--ink);font:800 .9rem/1.5 var(--sans);text-decoration:none;cursor:pointer}
+.legacy-page .cta-button:hover{background:var(--gold);color:var(--ink);border-color:transparent}
+.legacy-page .location-section{padding:26px;border:1px solid var(--line);border-radius:18px;background:var(--paper);margin-bottom:20px}
+.legacy-page .location-section h2{font-size:clamp(1.4rem,3vw,2rem);border-bottom:0;padding:0;margin:0 0 16px}
+.legacy-page .location-section p{margin-bottom:0}.legacy-page .section-intro{color:var(--muted)}
+.legacy-page>header.hero{box-sizing:border-box;height:auto;min-height:360px;padding:140px 20px 65px;background:linear-gradient(90deg,rgba(23,16,29,.93),rgba(23,16,29,.65)),url('images/hero-main.webp') center/cover;color:white}
+.legacy-page>header.hero h1{font-size:clamp(2.2rem,5vw,4.5rem)}
+.legacy-page>header.hero+main{padding-top:0}
+.legacy-page .faq-accordion{max-width:900px;margin:auto}.legacy-page .faq-item{border:1px solid var(--line);border-radius:14px;padding:0 20px;margin-bottom:10px;background:var(--paper)}
+.legacy-page .faq-question{font-family:var(--sans);font-size:1rem;color:var(--ink)}.legacy-page .faq-answer p{color:var(--muted)}
+.legacy-page .event-ticket-link{width:min(1180px,calc(100% - 40px));margin:20px auto 0}
+.error-page{display:block!important;min-height:100vh;height:auto!important;padding:78px 0 0}.error-page>.container{box-sizing:border-box;width:min(760px,calc(100% - 40px));max-width:none;margin:64px auto;padding:36px;border-radius:24px;background:var(--paper);color:var(--ink);text-align:center}.error-page>.container h1{color:var(--ink)}
+@media(max-width:1100px){.site-header .nav-links,.site-header .nav>.button{display:none}.site-header .menu-toggle{display:grid}.site-header .nav-links.open{position:fixed;inset:78px 0 0;display:flex;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:24px 20px;height:calc(100dvh - 78px);overflow-y:auto;overscroll-behavior:contain;background:var(--ink)}.site-header .nav-links.open a{padding:16px 8px;border-bottom:1px solid rgba(255,255,255,.12);font-size:1.15rem;white-space:normal}.site-header .nav-links.open .mobile-nav-contact{display:block}body.nav-open .site-header{backdrop-filter:none;-webkit-backdrop-filter:none}body.nav-open .mobile-book{display:none}}
+@media(max-width:980px){.site-footer .footer-grid{grid-template-columns:1fr 1fr;gap:32px}.site-footer{padding-bottom:110px}}
+@media(max-width:768px){.legacy-page .about-grid{grid-template-columns:1fr}.legacy-page .content-section{padding-block:40px}}
+@media(max-width:680px){.site-header .wrap,.site-footer .wrap{width:calc(100% - 28px)}.site-footer .footer-grid{grid-template-columns:1fr 1fr;gap:28px 20px}.site-footer .footer-brand,.site-footer .footer-contact{grid-column:1/-1}.site-footer .footer-nav-group a{display:flex;align-items:center;min-height:36px}.site-footer .footer-contact .button{width:100%}.site-footer .footer-bottom{margin-top:26px}.site-footer .footer-bottom p{width:100%}.site-footer .footer-bottom a{min-height:36px;display:inline-flex;align-items:center}.legacy-page .content-section{width:calc(100% - 28px)}.legacy-page .location-section{padding:22px}.legacy-page .faq-item{padding-inline:16px}.error-page>.container{padding:24px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.site-header *,.site-footer *{transition:none!important}}
+
+.skip-link{position:fixed;top:10px;left:10px;z-index:10000;transform:translateY(-150%);padding:12px 18px;border-radius:10px;background:#fff;color:#17101d;font:800 .9rem/1.5 var(--sans);text-decoration:none}.skip-link:focus{transform:none}
+
+/* Card colours echo the Bronze, Silver and Gold package palette. */
+:root{--card-plum:#e0d4dc;--card-stone:#e8e3e8;--card-gold:#f3e4cc;--card-ink:#2d2231;--card-copy:#514353;--card-border:#bba5b5}
+.wedding-reassurance .wedding-reassurance-grid figure{background:var(--card-plum);border-color:var(--card-border);border-top:3px solid var(--plum-dark);color:var(--card-ink)}
+.wedding-reassurance .wedding-reassurance-grid figure:nth-child(2){background:var(--card-stone);border-top-color:#777181}
+.wedding-reassurance .wedding-reassurance-grid figure:nth-child(3){background:var(--card-gold);border-top-color:#a67632}
+.review-track .review-card:not(.featured){background:var(--card-plum);border-color:var(--card-border);color:var(--card-ink)}
+.review-track .review-card:not(.featured):nth-child(3n){background:var(--card-stone)}
+.review-track .review-card:not(.featured):nth-child(3n+1){background:var(--card-gold)}
+.review-track .review-card:not(.featured) cite{color:var(--plum-dark)}
+.band-strip .member{background:#eee5eb;border-color:#d2becd}
+.wedding-music-grid .wedding-music-card{background:var(--card-plum);border-color:var(--card-border);border-top-color:var(--plum-dark);color:var(--card-ink)}
+.wedding-music-grid .wedding-music-card:nth-child(2){background:var(--card-stone);border-top-color:#777181}
+.wedding-music-grid .wedding-music-card:nth-child(3){background:var(--card-gold);border-top-color:#a67632}
+.wedding-music-grid .wedding-music-card p{color:var(--card-copy)}
+.wedding-music-grid .wedding-music-card:last-child{background:#44304a;border-color:#826a86;border-top-color:var(--gold);color:#fff7fc}
+.wedding-music-grid .wedding-music-card:last-child p{color:#eee0ee}
+.wedding-music-grid .wedding-music-card:last-child .wedding-number{color:var(--gold)}
+.wedding-venue-grid .wedding-venue-checklist{background:#eee5eb;border-color:#d2becd}
+.wedding-guide-grid>a{background:var(--card-plum);border-color:var(--card-border)}
+.wedding-guide-grid>a:nth-child(2){background:var(--card-stone)}
+.wedding-guide-grid>a:nth-child(3){background:var(--card-gold)}
+.wedding-guide-grid>a p{color:var(--card-copy)}
+
+/* Occasion cards share the package-inspired palette. */
+#events .event-card:nth-child(1){background:var(--card-plum);border-color:var(--card-border);border-top-color:var(--plum-dark);color:var(--card-ink)}
+#events .event-card:nth-child(2){background:var(--card-gold);border-color:#c5a77d;border-top-color:#a67632;color:var(--card-ink)}
+#events .event-card:nth-child(3){background:var(--card-stone);border-color:#b9adb9;border-top-color:#777181;color:var(--card-ink)}
+#events .event-card:nth-child(4){background:#44304a;border-color:#826a86;border-top-color:var(--gold);color:#fff7fc}
+#events .event-card:nth-child(4) p{color:#eee0ee}
+#events .event-card:nth-child(4) .event-arrow{color:var(--gold)}
+#events .event-card:hover{border-color:var(--plum-dark);box-shadow:0 8px 24px rgba(23,16,29,.09)}
+#events .event-card:nth-child(4):hover{border-color:var(--gold)}
+
+/* Compact repertoire panel with the same plum, silver and gold accents. */
+.repertoire.section-pad{padding-block:clamp(48px,6vw,80px);background:linear-gradient(120deg,#44304a,#291c30)}
+.repertoire .repertoire-layout{grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+.repertoire h2{font-size:clamp(2rem,4vw,3.4rem);margin-bottom:22px}
+.repertoire .eyebrow{margin-bottom:14px}
+.repertoire .artist-line{gap:8px;margin:24px 0}
+.repertoire .artist-line span{padding:7px 12px;border-color:#aa94a5;background:#e0d4dc;color:#2d2231;font-size:.8rem;font-weight:700}
+.repertoire .artist-line span:nth-child(3n+2){background:#e8e3e8}
+.repertoire .artist-line span:nth-child(3n){background:#f3e4cc;border-color:#c5a77d}
+.repertoire .genre-list{padding:24px;border:1px solid rgba(243,186,99,.28);border-radius:20px;background:rgba(23,16,29,.35)}
+.repertoire .genre-list h3{font-size:1.3rem;margin-bottom:12px}
+.repertoire .genre-list>p{color:#eee0ee;font-size:.9rem;margin-bottom:20px}
+.repertoire .genre{grid-template-columns:32px 1fr;gap:12px;padding:14px 0;border-bottom-color:rgba(255,255,255,.15)}
+.repertoire .genre:last-child{border-bottom:0;padding-bottom:0}
+.repertoire .genre b{font-size:.8rem}.repertoire .genre span{font-size:.9rem}
+.repertoire .button.ghost{min-height:48px;padding:10px 20px;font-size:.85rem;text-align:center}
+@media(max-width:980px){.repertoire .repertoire-layout{grid-template-columns:1fr}.repertoire .genre-list{max-width:none}}
+@media(max-width:680px){.repertoire .genre-list{padding:20px}.repertoire .artist-line span{font-size:.75rem;padding:7px 10px}.repertoire .button.ghost{width:100%}}
+
+/* Live examples stay visible without a carousel. */
+.music-samples .sample-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.music-samples .sample-card .play-button{width:60px;height:60px;font-size:1.2rem}
+.music-samples .sample-card h4{line-height:1.4}
+.video-lightbox.video-lightbox-landscape{width:min(1000px,calc(100vw - 32px),calc((100dvh - 120px)*1.777778))}
+.video-lightbox.video-lightbox-landscape iframe{aspect-ratio:16/9}
+@media(max-width:980px){.music-samples .sample-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.music-samples .sample-grid{grid-template-columns:1fr}.music-samples .sample-card .play-button{width:70px;height:70px}}
